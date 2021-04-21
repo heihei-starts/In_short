@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'homes#home'
   
 
-  resources :registers
+  #esources :registers
   #registersコントローラーをRESTFULL
   #/XXXs::index/:GET一覧画面を
   #生成
@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   #/XXXs/:id::destroy DELETE	削除処理
   
   
-  #namespace :api do
-    #apiの処理はここに記述
-  #end#
+  namespace :api  do
+    get '/new', to: 'registers#new'
+    resources :registers,format:'json', except:[:new]
+  end#
   #api以外のリクエストは、全部homeコントローラーのhomeアクション
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
