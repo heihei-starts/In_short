@@ -6,7 +6,7 @@
 
 
         </div>
-        <form> 
+        <form action="/api/registers" method="post"> 
     
             <div class="form-top">
                 <p>以下の項目に答え、(送信)ボタンを押してください</p>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-bottom"> 
-                <button type="button"class="btn btn-primary"v-on:click="doPost">登録</button>
+                <button type="submit" class="btn btn-primary">登録</button>
             </div>
         
         </form>
@@ -95,27 +95,27 @@
    methods: {
         
 
-        sendShow () {
+//        sendShow () {
           //show アクションにとばす
-          console.log("success")
-          axios.get('/api/register')
-            .then(response => (user = response))
-            .catch(error => (console.log("失敗ちゃ")))
-        },
+//          console.log("success")
+//          axios.get('/api/registers/1')//ここのurlをshowアクションへのものにする
+//            .then(response => (self.$router.push("/show")))//show.vueにいくhh
+//            .catch(error => (console.log("失敗ちゃ")))
+//        },
        // axiosで、post通信
-        doPost () {
-           axios.post('/api/registers',{
-            name: this.name,
-            email: this.email,
-            password: this.password,
-            password_confirmation: this.password_confirmation
-          })
-            .then(response =>(this.sendShow()))
-            .catch(error => (console.log("false")))
+//        async doPost () {
+//           await axios.post('/api/registers',{
+//            name: this.name,
+//            email: this.email,
+//            password: this.password,
+//            password_confirmation: this.password_confirmation
+//          })
+//            .then(response =>(this.sendShow()))
+//            .catch(error => (console.log("false")))
           
 
 
-        } 
+//        } 
    }
   }     
    
