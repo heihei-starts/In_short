@@ -1,5 +1,7 @@
 <template>
 <p>{{ name }}</p>
+
+
 </template>
 
 <script>
@@ -9,19 +11,21 @@
   export default {
     data () {
       return {
+        name: "ヘイヘイ",
+        props: ["id"],
         user: []
       }
     },
 
-    mountede: {
+//    mounted: {
       //登録ユーザーごとのページにとぶ。俺どんな感じにするん？
-      setUser () {
-        axios.get('/api/register')
-          .then(response => (
-           this.user = response.data
-          ))
-      }
-    } 
+//      setUser () {
+//        axios.get('/api/register/')
+//          .then(response => (
+//           this.user = response.data
+//          ))
+//      }
+//    } 
   }
 </script>
 

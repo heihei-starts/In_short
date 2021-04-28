@@ -10,18 +10,21 @@ class Api::RegistersController < ApplicationController
     #userモデルのバリデーションに通る場合、showコントローラに飛ぶ
     if @user.save
       #ajaxを使うとき、redirectoでそのままページ遷移できない。:showがなにをさしている？
-       redirect_to api_register_path(@user), status: :created 
+      # head :created
+       redirect_to api_register_path(@user), status: :found
       #ここshowアクションにいかすことができたらかち
     else
       #newに飛ばし候。失敗というれレスポンスコードを返し候。
-      redirect_to api_new_path, status:  :unprocessable_entity
+      #head :unprocessable_entity and return
+      redirect_to api_new_path, status:  :found
     end
   end
 
   def show
     #どっちか？
     @user = User.find(params[:id])
-    render formats: :json, status: :ok
+    
+    render formats: :html, status: :ok
   end
 
 
