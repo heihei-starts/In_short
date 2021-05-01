@@ -10,6 +10,34 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import 'bootstrap/scss/bootstrap';
+
+.Head h1 {
+  font-size: 50px;
+  text-align:center;
+  font-family: 'Londrina solid', cursive;
+}
+
+.form {
+  text-align: center;
+}
+
+.form-top p {
+  font-size: 20px;
+  border-bottom: groove;
+}
+
+.form-bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn {
+  font-size: 25px;
+}
+
+.error {
+  color: red;
+}

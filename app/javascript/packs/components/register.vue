@@ -6,7 +6,7 @@
 
 
         </div>
-        <form action="/api/registers" method="post"> 
+        <form action="/user:s" method="post"> 
     
             <div class="form-top">
                 <p>以下の項目に答え、(送信)ボタンを押してください</p>

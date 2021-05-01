@@ -1,24 +1,28 @@
 Rails.application.routes.draw do
 
-  root 'homes#home'
-  
 
-  #esources :registers
-  #registersコントローラーをRESTFULL
-  #/XXXs::index/:GET一覧画面を
-  #生成
-  #/XXXs/:id::show:GET 詳細画面を生成
-  #/XXXs/new::newGET 登録画面を生成
-  #/XXXs::create POST 登録処理
-  #/XXXs/:id/edit::edit GET 編集画面を生成
-  #/XXXs/:id::update PUT 更新処理
-  #/XXXs/:id::destroy DELETE	削除処理
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'  ,
+    sessions: 'users/sessions'            ,
+    passwords: 'users/passwords'
+  }
   
+  devise_scope :user do
+    get 'sign_in', to: 'users/registrations#index'
+    get 'sign_out', to: 'users/sessions#destroy'
+
+    #登録フォームでエラーが起きた後でロードした時のたいしょ
+    get '/users', to: redirect('/users/sign_up', status: 301)
+  end
+
   
-  namespace :api  do
-    get '/new', to: 'registers#new'
-    resources :registers,format:'json', except:[:new]
-  end#
+  root 'homes#home'
+ #------------------------------------------------------------------------------------------------------ 
+ # namespace :api  do
+  #  get '/new', to: 'registers#new'
+   # resources :registers,format:'json', except:[:new]
+  #end#
   #api以外のリクエストは、全部homeコントローラーのhomeアクション
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #------------------------------------------------------------------------------------------------------
 end

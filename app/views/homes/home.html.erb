@@ -1,14 +1,16 @@
+<!--ここから -->
 <div id="app">
   <div class="to_form">
-    <%=link_to "登録ページ", api_new_path %>
+    <%=link_to "登録ページ", new_user_registration_path %>
+    <%=link_to "ログアアウト", destroy_user_session_path, method: :delete %>
   </div>
+
   <navbar></navbar>
   <div class="container">
-     <router-view></router-view>
   </div>
 </div>
 
-  
+<!--ここはヘッダーに後々おく -->
 
 
   <%= javascript_pack_tag 'home' %>

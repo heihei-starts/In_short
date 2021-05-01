@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="Head">
+    <h1>In-short</h1>
+  </div>
+  <div class="form">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form-top">
+        <p>入力してください</p>
+        <%= render "devise/shared/error_messages", resource: resource, class: "error" %>
+      </div>
+      <div class="form-middle">
+
+        <div class="form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "名前を入力してください", class: "form-control" %>
+  
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email,  autocomplete: "email", placeholder: "メールアドレスを入力してください", class: "form-control" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワードを入力してください", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "際入力してください", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-bottom">
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "devise/shared/links" %>
+
