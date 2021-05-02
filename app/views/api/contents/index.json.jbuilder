@@ -1,1 +1,1 @@
-json.array!@contents, :content_name
+json.array!@contents, :id,:content_name

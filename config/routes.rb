@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :contents,  only:[:index]
+    #meansコントローラー↓
+    get 'display/:id', to: 'means#display'
+    post 'means_post', to: 'means#post'
   end
 
 
