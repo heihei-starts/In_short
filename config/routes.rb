@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :api, format: 'json' do
+    resources :contents,  only:[:index]
+  end
+
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'  ,
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
 
   
   root 'homes#home'
+
  #------------------------------------------------------------------------------------------------------ 
  # namespace :api  do
   #  get '/new', to: 'registers#new'

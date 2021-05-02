@@ -6,7 +6,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from 'axios'
 var app = new Vue ({
     router: Router,
-    el:'#app',
+    el:'#appHeader',
     
     components: {
         'navbar': Header,

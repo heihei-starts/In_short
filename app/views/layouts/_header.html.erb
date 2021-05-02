@@ -1,0 +1,13 @@
+<header>
+  <div id="appHeader">
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= link_to "登録ページ", new_user_registration_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <navbar></navbar>
+    </div>
+  </div>
+</header>
+
+<%= javascript_pack_tag 'home' %>
