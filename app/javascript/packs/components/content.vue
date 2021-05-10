@@ -1,10 +1,9 @@
 <template>
   <div class="container">
       <ul>
-        <!--ここをbuttonタグに変えて、クリックすると、その単語の意味が出てくる。 -->
         <li v-for="content in contents" :key="content.id">
           {{ content.id }} : {{ content.content_name }}
-          <button type="button" @click="stateId(content.id)">ここ</button>
+          <button type="button" @click="fixedId(content.id)">ここ</button>
         </li>
       </ul>
   </div>
@@ -38,7 +37,7 @@
       },
   
       //id固定メソッド
-      stateId (content) {
+      fixedId (content) {
         location.href='/api/display/' + content
       }
 

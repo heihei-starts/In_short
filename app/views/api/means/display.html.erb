@@ -1,2 +1,10 @@
-<h1>Api::Means#display</h1>
-<p>Find me in app/views/api/means/display.html.erb</p>
+<div id="app">
+  <!--ここで、@meansをviewに渡すことができたら、vue.jsでかく。 -->
+  <meanbar :means= "<%= @means.to_json %>" ></meanbar>
+  
+</div>
+<!--したの処理をフロント側でしたい。 -->
+
+<%= link_to "ホーム", root_path %>
+
+<%= javascript_pack_tag 'mean' %>

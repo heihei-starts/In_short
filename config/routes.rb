@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  namespace :api, format: 'json' do
-    resources :contents,  only:[:index]
-    #meansコントローラー↓
+  namespace :api  do
+    #meansコントローラー
     get 'display/:id', to: 'means#display'
+    get 'means_new/:content_id', to: 'means#new_post' 
     post 'means_post', to: 'means#post'
+    #contentsコントローラー
+    resources :contents, format: 'json',  only:[:index]
   end
 
 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   
+  
   devise_scope :user do
     get 'sign_in', to: 'users/registrations#index'
     get 'sign_out', to: 'users/sessions#destroy'
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
     get '/users', to: redirect('/users/sign_up', status: 301)
   end
 
-  
+  #rootパス 
   root 'homes#home'
 
  #------------------------------------------------------------------------------------------------------ 
