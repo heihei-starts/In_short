@@ -1,4 +1,6 @@
 class Api::MeansController < ApplicationController
+  #ログインしてるユーザーのみ、投稿できる。
+  before_action :authenticate_user!,only:[:post, :new_post]
 
   def display
     #表示
@@ -14,7 +16,8 @@ class Api::MeansController < ApplicationController
     end
 
     #content_idが同じになるレコードを取得
-    @means = Mean.where(content_id: content.id)
+    #@means = Mean.where(content_id: content.id)
+    @means = content.means 
   end
 
   
