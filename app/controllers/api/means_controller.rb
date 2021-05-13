@@ -9,15 +9,15 @@ class Api::MeansController < ApplicationController
 
     if params[:id]
       #何もしてない状態から、ここに来た時(idから、idを取得。)
-      content = Content.find_by(id: params[:id])
+      @content = Content.find_by(id: params[:id])
     else
       #postアクションの後にここに来た時(content_idをidとして、取得。)
-      content = Content.find_by(id: params[:content_id])
+      @content = Content.find_by(id: params[:content_id])
     end
 
     #content_idが同じになるレコードを取得
     #@means = Mean.where(content_id: content.id)
-    @means = content.means 
+    @means = @content.means 
   end
 
   

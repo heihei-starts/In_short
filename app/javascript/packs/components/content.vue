@@ -3,7 +3,7 @@
       <ul>
         <li v-for="content in contents" :key="content.id">
           {{ content.id }} : {{ content.content_name }}
-          <button type="button" @click="fixedId(content.id)">ここ</button>
+          <button type="button" @click="fixedId(content.id)">つまり</button>
         </li>
       </ul>
   </div>

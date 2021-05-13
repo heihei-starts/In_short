@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <div class="content_name">
+      {{ tieContentName(con_name) }}
+      <h2>{{ content_name }}</h2>
+    </div>
     <ul>
       <li v-for="mean in means" :key="mean.id">
         {{ mean.content_id }}:  {{ mean.meaning }}
@@ -17,12 +21,16 @@
     props: {
       means: {
         type: Array
-     }
+     },
+     con_name: {
+      type: String
+     },
     },
 
     data () {
       return {
-      }
+        content_name: "",
+      };
     },
 
     methods: {
@@ -39,7 +47,11 @@
         content_id = means[index0].content_id;
         //console.log(id);
         return location.href='/api/means_new/' + content_id;
-      }
+      },
+
+      tieContentName(name) {
+        this.content_name = name;
+      },
 
     }
 
