@@ -59,7 +59,8 @@
                 email:""                ,
                 password:""             ,
                 password_confirmation:"",
-               //showアクションようid
+ 
+ //showアクションようid
             };
     },
 

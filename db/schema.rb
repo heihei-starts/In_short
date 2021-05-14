@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_064827) do
+ActiveRecord::Schema.define(version: 2021_05_14_070202) do
 
   create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2021_05_13_064827) do
     t.string "content_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "goods", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "mean_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mean_id"], name: "index_goods_on_mean_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
   end
 
   create_table "means", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

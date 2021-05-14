@@ -6,7 +6,6 @@ class Api::MeansController < ApplicationController
     #表示
     #求めるcontentのidを取得.
     #p params[:id]
-
     if params[:id]
       #何もしてない状態から、ここに来た時(idから、idを取得。)
       @content = Content.find_by(id: params[:id])

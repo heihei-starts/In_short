@@ -6,7 +6,7 @@
     </div>
     <ul>
       <li v-for="mean in means" :key="mean.id">
-        {{ mean.content_id }}:  {{ mean.meaning }}
+         {{ mean.meaning }} <span><button type="button" @click="goodButton()">いいね</button></span><span>{{ good }}</span>
       </li>
     </ul>
     <button type="button" @click="getContentId(means)">投稿ページ</button>
@@ -30,11 +30,12 @@
     data () {
       return {
         content_name: "",
+        good: 0,
       };
     },
 
     methods: {
-      
+       
       getContentId (means) {
         //インデックス0の値を取得
         const index0 = 0
@@ -48,10 +49,18 @@
         //console.log(id);
         return location.href='/api/means_new/' + content_id;
       },
+      
 
       tieContentName(name) {
         this.content_name = name;
       },
+
+      //いいねメソッド
+      goodButton () {
+        this.good += 1;
+      },
+
+      //いいね送信メソッド
 
     }
 
