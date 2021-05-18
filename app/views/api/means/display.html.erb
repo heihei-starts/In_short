@@ -1,6 +1,6 @@
 <div id="app">
   <!--ここで、@meansをviewに渡すことができたら、vue.jsでかく。 -->
-  <meanbar :means= "<%= @means.to_json %>" con_name="<%= @content.content_name%>" ></meanbar>
+  <meanbar :means= "<%= @means.to_json %>" con_name="<%= @content.content_name%>" current_user_id = "<%= @current_user %>" authenticity_token="<%= form_authenticity_token() %>"></meanbar>
   
 </div>
 <!--したの処理をフロント側でしたい。 -->

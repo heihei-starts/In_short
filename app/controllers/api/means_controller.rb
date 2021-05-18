@@ -14,9 +14,14 @@ class Api::MeansController < ApplicationController
       @content = Content.find_by(id: params[:content_id])
     end
 
-    #content_idが同じになるレコードを取得
+    #content_idが同じレコードを全取得
     #@means = Mean.where(content_id: content.id)
     @means = @content.means 
+
+    #ログインユーザーのidを取得
+    if user_signed_in?
+      @current_user = current_user.id
+    end
   end
 
   
@@ -26,6 +31,7 @@ class Api::MeansController < ApplicationController
     #p params[:content_id] 
     #content_idをviewに渡す。
     @content_id = params[:content_id]
+    
     #p @content_id
     #p form_authenticity_token()
   end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   namespace :api  do
     #meansコントローラー
     get 'display/:id', to: 'means#display'
@@ -8,6 +9,13 @@ Rails.application.routes.draw do
     post 'means_post', to: 'means#post'
     #contentsコントローラー
     resources :contents, format: 'json',  only:[:index]
+  end
+
+  namespace :good do
+    #goodsコントローラー
+    post 'goods_post', to: 'goods#post'
+    delete 'goods_destroy', to: 'goods#destroy'
+    get 'goods_show/:user_id', to: 'goods#show' 
   end
 
 

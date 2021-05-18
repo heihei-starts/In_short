@@ -94,7 +94,7 @@
    },
 
    methods: {
-        
+
 
 //        sendShow () {
           //show アクションにとばす
@@ -105,7 +105,7 @@
 //        },
        // axiosで、post通信
 //        async doPost () {
-//           await axios.post('/api/registers',{
+//             await axios.post('/api/registers',{
 //            name: this.name,
 //            email: this.email,
 //            password: this.password,
