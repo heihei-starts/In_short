@@ -4,8 +4,24 @@ class Good::GoodsController < ApplicationController
   #いいねをpost
   def post
     #いいね 
-    current_user.goods.create!(post_params)
-    head :created
+    #そのユーザーがそれをいいねしてたら、いいねできなくする。
+    #if current_user.goods.include?(specific_user)
+     #   p "いいねしてます。"
+    #else
+    
+      current_user.goods.new(post_params)
+      
+      if current_user.save
+        add_good()
+        head :created
+      else
+        flash[:done] = "いいねされています"
+      end
+  
+      
+
+    
+    #end
   end
 
   
@@ -24,6 +40,21 @@ class Good::GoodsController < ApplicationController
 
     def post_params
       params.permit(:user_id, :mean_id)
+    end
+
+    def specific_user
+       Mean.find(params[:mean_id])
+    end
+    
+    #meanテーブルのgood +1
+    def add_good()
+      mean = Mean.find_by(id: params[:mean_id])
+      mean.increment!(:good, 1)
+    end
+    #meanテーブルのgood -1
+    def delete_good()
+      mean = Mean.find_by(id: params[:mean_id])
+      mean.decrement!(:goo, 1)
     end
 
 

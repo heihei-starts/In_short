@@ -6,7 +6,8 @@
     </div>
     <ul>
       <li v-for="mean in means" :key="mean.id">
-         {{ mean.meaning }} <span><button type="button" @click="doGood(mean.id)">{{ mean.good }}</button></span>
+         {{ mean.meaning }} <span><button type="button" @click="doGood(mean.id)"> {{ mean.good }}</button></span>
+         
       </li>
     </ul>
 
@@ -44,9 +45,11 @@
     data () {
       return {
         content_name: "",
+        content_means: "",
         user_id: "",
       };
     },
+
 
     methods: {
        
@@ -71,23 +74,18 @@
         //console.log(this.user_id);
       },
 
-      //(仮) いいねメソッド
 
       //いいね送信メソッド
       //リクエストに謎の、goodシンボルがある。これはなくすべし。
-      doGood (mean_id) {
+       doGood (mean_id) {
         axios.post('/good/goods_post', {
           user_id: Number(this.user_id),
           mean_id: mean_id, 
         })
-        .then(response => console.log("success"))
+        .then(response => console.log(response))
         .catch(error => console.log("error"))
       },
 
-      addGoodPoints () {
-        axios.post
-
-      }
 
     }
 

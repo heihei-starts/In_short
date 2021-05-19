@@ -16,15 +16,14 @@ class Api::MeansController < ApplicationController
 
     #content_idが同じレコードを全取得
     #@means = Mean.where(content_id: content.id)
-    @means = @content.means 
-
+    @means= @content.means.order('good DESC')
+     
     #ログインユーザーのidを取得
     if user_signed_in?
       @current_user = current_user.id
     end
   end
 
-  
 
   def new_post
     #投稿ページへ遷移
@@ -48,6 +47,7 @@ class Api::MeansController < ApplicationController
       redirect_to root_path, status: :found
     end
   end
+
 
 
   private
