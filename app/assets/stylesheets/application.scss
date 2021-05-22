@@ -14,11 +14,23 @@
 
 @import 'bootstrap/scss/bootstrap';
 
+
+.container {
+  margin: 10px;
+}
+
+footer {
+  margin: 20px;
+  background-color: gray;
+
+}
+ 
 .Head h1 {
   font-size: 50px;
   text-align:center;
   font-family: 'Londrina solid', cursive;
 }
+
 
 .form {
   text-align: center;
@@ -41,3 +53,8 @@
 .error {
   color: red;
 }
+
+.login_forget {
+  
+}
+

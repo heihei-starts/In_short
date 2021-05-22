@@ -1,6 +1,7 @@
 class Good::GoodsController < ApplicationController
   #ログインしてる時だけ、いいね。いいね削除できる。
   before_action :authenticate_user!, only:[:post, :destroy] 
+  
   #いいねをpost
   def post
     #いいね 
@@ -18,9 +19,6 @@ class Good::GoodsController < ApplicationController
         flash[:done] = "いいねされています"
       end
   
-      
-
-    
     #end
   end
 
@@ -36,7 +34,11 @@ class Good::GoodsController < ApplicationController
   end
 
   private
-
+    
+    #ログインしていなければ、ログインページ
+    def check_login
+      redirect_to new_user_session_path
+    end
 
     def post_params
       params.permit(:user_id, :mean_id)

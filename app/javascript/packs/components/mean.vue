@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="content_name">
-      {{ tieContentName(con_name, current_user_id) }}
+      {{ tieContentName(con_name, current_user_id,authenticity_token) }}
       <h2>{{ content_name }}</h2>
     </div>
     <ul>
@@ -11,7 +11,7 @@
       </li>
     </ul>
 
-    <button type="button" @click="getContentId(means)">投稿ページ</button>
+    <button type="button" @click="getContentId(means)">投稿ページ</button><span class="not_login" v-if="isLogined">  (投稿するには、ログインが必要です。)</span>
   </div>
 
 </template>
@@ -47,12 +47,30 @@
         content_name: "",
         content_means: "",
         user_id: "",
+        token: "",
       };
+    },
+
+    computed: {
+      //ログインしているかチェック
+      isLogined () {
+        const user_token = this.token;
+        //条件をどげんかせんといかん
+        //値が入ってたら、user_token=true,入ってなかったら、user_token=false
+        if (user_token) {
+          return false;
+        } else {
+          return true;
+        }
+      },
+
+
+
     },
 
 
     methods: {
-       
+
       getContentId (means) {
         //インデックス0の値を取得
         const index0 = 0;
@@ -71,7 +89,9 @@
       tieContentName(content_name, current_user_id, token) {
         this.content_name = content_name    ;
         this.user_id      = current_user_id ;
-        //console.log(this.user_id);
+        this.token        = token;
+        console.log(this.user_id);
+        console.log(this.token)
       },
 
 
@@ -96,4 +116,16 @@
 
 </script>
 
-<style></style>
+<style>
+.content_name h2 {
+  text-align: center;
+  border-bottom: groove;
+
+}
+
+.not_login {
+  color: gray;
+
+}
+
+</style>

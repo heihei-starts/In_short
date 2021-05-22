@@ -20,7 +20,8 @@ class Api::MeansController < ApplicationController
      
     #ログインユーザーのidを取得
     if user_signed_in?
-      @current_user = current_user.id
+      @session_id     = form_authenticity_token()
+      @current_user   = current_user.id
     end
   end
 
@@ -29,6 +30,9 @@ class Api::MeansController < ApplicationController
     #投稿ページへ遷移
     #p params[:content_id] 
     #content_idをviewに渡す。
+    content_name = Content.find_by(id: params[:content_id])
+    @content_name = content_name.content_name
+    #p @content_name
     @content_id = params[:content_id]
     
     #p @content_id

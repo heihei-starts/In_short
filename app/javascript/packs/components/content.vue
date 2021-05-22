@@ -1,9 +1,15 @@
 <template>
   <div class="container">
+      <p>コンテント内容を検索する。機能つける。</p>
+      <p>いいね削除機能</p>
+      <p>テスト</p>
+      <p>ui</p>
+      <p>ログインセッションを、controllerでする。</p>
+      <p>いいね即時反映</p>
       <ul>
-        <li v-for="content in contents" :key="content.id">
+        <li class="content" v-for="content in contents" :key="content.id">
           {{ content.id }} : {{ content.content_name }}
-          <button type="button" @click="fixedId(content.id)">つまり</button>
+          <button type="button" class=" btn btn-success rounded-pill tomean py-0 "  @click="fixedId(content.id)">is</button>
         </li>
       </ul>
   </div>
@@ -49,5 +55,12 @@
   
 
 <style>
+.tomean {
+  display: flex;
+  flex-flow: column;
+  justify-content:space-between;
+}
 
+.content {
+}
 </style>
