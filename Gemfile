@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 #add devise,bootstrap
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'cancancan'
 gem 'rails_admin'
 gem 'bootstrap'

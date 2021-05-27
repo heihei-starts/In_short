@@ -3,7 +3,7 @@
   <h1>In-short</h1>
   </div>
   <div class="form">
-
+    <%= render "devise/shared/error_messages", resource: resource, class: "error" %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-top">
         <p>入力してください</p><span>（ログインページ）</span>
