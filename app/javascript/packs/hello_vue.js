@@ -5,7 +5,8 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
+import Vue from 'vue';
+import axios from 'axios';
 import App from '../app.vue'
 //import Vuex from "vuex"
 //import VueRouter from "vue-router";
@@ -13,6 +14,7 @@ import App from '../app.vue'
 //import router from "../routes/router.js";
 //import axios from "axios";
 //import VueAxios from "vue-axios";
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

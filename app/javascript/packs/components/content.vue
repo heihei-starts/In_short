@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-      <p>コンテント内容を検索する。機能つける。</p>
-      <p>いいね削除機能</p>
-      <p>テスト</p>
-      <p>ui</p>
-      <p>ログインセッションを、controllerでする。</p>
-      <p>いいね即時反映</p>
+      <!--<p>コンテント内容を検索する。機能つける。</p> 
+      <p>いいね削除機能</p> 
+      <p>テスト</p> 
+      <p>ui</p> 
+      <p>ログインセッションを、controllerでする。</p> 
+      <p>いいね即時反映</p>  -->
       <ul>
         <li class="content" v-for="content in contents" :key="content.id">
           {{ content.id }} : {{ content.content_name }}
@@ -20,6 +20,7 @@
 
 <script>
   import axios from 'axios';
+  import New from './new_post.vue'
 
   export default {
     data () {
@@ -49,12 +50,16 @@
 
       
     },
+
+    components: {
+      'newbar': New,
+    }
    
   }
 </script>
   
 
-<style>
+<style scoped>
 .tomean {
   display: flex;
   flex-flow: column;

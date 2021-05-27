@@ -5,7 +5,7 @@ class Api::MeansController < ApplicationController
   def display
     #表示
     #求めるcontentのidを取得.
-    #p params[:id]
+    p params[:id]
     if params[:id]
       #何もしてない状態から、ここに来た時(idから、idを取得。)
       @content = Content.find_by(id: params[:id])
@@ -21,7 +21,7 @@ class Api::MeansController < ApplicationController
     #ログインユーザーのidを取得
     if user_signed_in?
       @session_id     = form_authenticity_token()
-      @current_user   = current_user.id
+      @current_user_id   = current_user.id
     end
   end
 
@@ -34,7 +34,9 @@ class Api::MeansController < ApplicationController
     @content_name = content_name.content_name
     #p @content_name
     @content_id = params[:content_id]
-    
+    #ログインしているユーザーid取得
+    @current_user_id = current_user.id
+    #p @current_user_id 
     #p @content_id
     #p form_authenticity_token()
   end
@@ -52,13 +54,21 @@ class Api::MeansController < ApplicationController
     end
   end
 
+  #いいね数
+  def display_good
+    #パラメーターで、means_idを受け取る
+    mean  = Mean.find_by(id: params[:id])
+    @good   = mean.good
+    p @good 
+  end
+
 
 
   private
 
   def mean_params
     #ここで、content_idを入れる
-    params.permit(:meaning, :content_id)
+    params.permit(:meaning, :content_id, :user_id)
   end
 
 

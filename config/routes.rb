@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :api  do
     #meansコントローラー
     get 'display/:id', to: 'means#display'
-    get 'means_new/:content_id', to: 'means#new_post' 
+    get 'means_new/:content_id', to: 'means#new_post'
+    get 'means_good/:id', to: 'means#display_good', format: 'json'
     post 'means_post', to: 'means#post'
     #contentsコントローラー
     resources :contents, format: 'json',  only:[:index]

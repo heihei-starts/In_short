@@ -2,10 +2,13 @@
   <div class="container">
     <form action="/api/means_post" method="post">
       <div class="content_id">
-        {{ tieContents(content_id, content_name, authenticity_token) }}
+        {{ tieContents(content_id, content_name, authenticity_token, use_id) }}
         <input type="hidden" name="authenticity_token" :value="token">
-        <input type="hidden" name="content_id":value="id" >
+        <input type="hidden" name="content_id":value="con_id" >
+        <input type="hidden" name="user_id" :value="user_id">
       </div>
+
+
       <div class="Head">
         <h3>{{ name }}とは</h3>
       </div>
@@ -15,7 +18,12 @@
       </div>
 
       <div class="post">
-        <button class="post_submit" type="submit">投稿</button>
+        <button class="btn btn-primary post_submit" type="submit">投稿</button>
+      </div>
+      <br>
+      <div class="back">
+        <button class="btn btn-link" type="button" @click="fixedId(con_id)">前のページに戻る</button>
+        
       </div>
 
 
@@ -31,7 +39,8 @@
 
     data () {
       return {
-        id: "",
+        con_id: "",
+        user_id: "",
         token: "",
         name: "",
       };
@@ -39,6 +48,9 @@
 
     props: {
       content_id: {
+        type: String
+      },
+      use_id: {
         type: String
       },
       //これやって大丈夫か不安
@@ -53,12 +65,17 @@
 
     methods: {
       //propsのcontent_idをdataに入れる
-      tieContents (content_id, content_name, token) {
-        this.id = content_id;
-        this.name = content_name;
-        this.token = token;
+      tieContents (content_id, content_name, token, current_user_id) {
+        this.con_id   = content_id      ;
+        this.name     = content_name    ;
+        this.token    = token           ;
+        this.user_id  = Number(current_user_id) ;
 
       },
+
+      fixedId (content_id) {
+        location.href='/api/display/' + content_id
+      }
 
     //  async doPost () {
       //  await axios.post('/api/means_post', {
