@@ -19,6 +19,9 @@
 header {
      background-image: image-url('header.jpg');
      margin-bottom: 20px;
+     postition: absolute;
+     top: 0;
+     width: 100%;
 }
 
 main {
@@ -64,7 +67,13 @@ footer h6 {
 
 .form-bottom {
   margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
   text-align: center;
+
+}
+.btn-bottom {
+  margin-bottom: 10px
 }
 
 .btn {
@@ -73,6 +82,7 @@ footer h6 {
 
 .error {
   color: red;
+
 }
 
 

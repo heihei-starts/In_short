@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   #rootパス 
   root 'homes#home'
 
+
  #------------------------------------------------------------------------------------------------------ 
  # namespace :api  do
   #  get '/new', to: 'registers#new'

@@ -1,6 +1,6 @@
 <div id="app">
   <% provide(:title, "display") %>
-  <%= flash[:done] %>
+  <%# <%= flash[:done] %1> %>
   <!--ここで、@meansをviewに渡すことができたら、vue.jsでかく。 -->
   <meanbar :means= "<%= @means.to_json %>" con_name="<%= @content.content_name%>" current_user_id = "<%= @current_user_id %>" authenticity_token="<%= @session_id %>"></meanbar>
 

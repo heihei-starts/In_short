@@ -8,7 +8,7 @@
       <p>いいね即時反映</p>  -->
       <ul>
         <li class="content" v-for="content in contents" :key="content.id">
-          {{ content.id }} : {{ content.content_name }}
+          {{ content.id }} : <span class="line">{{ content.content_name }}</span>
           <button type="button" class=" btn btn-success rounded-pill tomean py-0 "  @click="fixedId(content.id)">is</button>
         </li>
       </ul>
@@ -20,7 +20,6 @@
 
 <script>
   import axios from 'axios';
-  import New from './new_post.vue'
 
   export default {
     data () {
@@ -51,9 +50,6 @@
       
     },
 
-    components: {
-      'newbar': New,
-    }
    
   }
 </script>

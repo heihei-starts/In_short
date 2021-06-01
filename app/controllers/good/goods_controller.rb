@@ -6,9 +6,6 @@ class Good::GoodsController < ApplicationController
   def post
     #いいね 
     #そのユーザーがそれをいいねしてたら、いいねできなくする。
-    #if current_user.goods.include?(specific_user)
-     #   p "いいねしてます。"
-    #else
     
       current_user.goods.new(post_params)
       

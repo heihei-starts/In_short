@@ -8,7 +8,7 @@
       <li v-for="mean in means" :key="mean.id">
         <!--ログインユーザーと、投稿のユーザidが一致した時、色を変える -->
         <template v-if="matchUserIdMeanId(mean.user_id)">
-          <p class="red">hei{{ mean.meaning }}</p>
+          <p class="red">{{ mean.meaning }}</p>
         </template>
         <template v-else>
           <p>{{ mean.meaning }}</p>
